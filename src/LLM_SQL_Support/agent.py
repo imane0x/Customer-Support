@@ -1,9 +1,5 @@
-from langchain.agents import initialize_agent
-from langchain.memory import ConversationBufferMemory
 from src.LLM_SQL_Support.LangchainTools import tools
-from langchain.memory import ConversationBufferMemory
 from langchain.agents import initialize_agent
-from src.LLM_SQL_Support.model_loader import load_model
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.agents import AgentExecutor, create_react_agent
 def Agent(llm):
@@ -44,7 +40,7 @@ def Agent(llm):
         ]
 
     )
-    react_agent = create_react_agent(llm, tools=tools,prompt=assistant_prompt )
+    react_agent = create_react_agent(llm, tools=tools,prompt=assistant_prompt)
     # executes the logical steps we created
     react_agent_executor = AgentExecutor(
         agent=react_agent, tools=tools, verbose=True, handle_parsing_errors=True
