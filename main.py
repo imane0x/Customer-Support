@@ -3,10 +3,11 @@ from src.LLM_SQL_Support.agent import Agent
 from src.LLM_SQL_Support.model_loader import load_model
 def main(fine_tune):
     if fine_tune:
-        from src.model_finetuning.fine_tuning import fine_tune_model # Import fine-tuning logic
-        print("Fine-tuning the model... Please wait.")
-        fine_tune_model()  # Assuming you have a function for fine-tuning the model
-        print("Fine-tuning completed!")
+        pass
+        # from src.model_finetuning.fine_tuning import fine_tune_model # Import fine-tuning logic
+        # print("Fine-tuning the model... Please wait.")
+        # fine_tune_model()  # Assuming you have a function for fine-tuning the model
+        # print("Fine-tuning completed!")
 
     # Proceed with running the model
     llm= load_model()
