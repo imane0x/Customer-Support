@@ -5,10 +5,10 @@ from src.LLM_SQL_Support.LangchainTools import llm
 def main(fine_tune):
     if fine_tune:
         pass
-        # from src.model_finetuning.fine_tuning import fine_tune_model # Import fine-tuning logic
-        # print("Fine-tuning the model... Please wait.")
-        # fine_tune_model()  # Assuming you have a function for fine-tuning the model
-        # print("Fine-tuning completed!")
+        from src.model_finetuning.fine_tuning import fine_tune_model # Import fine-tuning logic
+        print("Fine-tuning the model... Please wait.")
+        fine_tune_model()  # Assuming you have a function for fine-tuning the model
+        print("Fine-tuning completed!")
 
     # Proceed with running the model
     react_agent, react_agent_executor = Agent(llm)
