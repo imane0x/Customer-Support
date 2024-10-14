@@ -15,7 +15,7 @@ DATASET_NAME = "Kaludi/Customer-Support-Responses"
 MAX_SQ_LENGTH = 2048 # Choose any! We auto support RoPE Scaling internally!
 DTYPE = None # None for auto detection. Float16 for Tesla T4, V100, Bfloat16 for Ampere+
 LOAD_IN_4_BITS = False # Use 4bit quantization to reduce memory usage. Can be False.
-
+MODEL_PATH=  "outputs"
 
 # Fine-tuning parameters
 FINE_TUNE_PARAMS = {
