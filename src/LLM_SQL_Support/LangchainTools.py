@@ -150,7 +150,7 @@ def cancel_order(order_id: str) -> str:
     conn.close()
     return "Order successfully cancelled."
 
-def llm(llm):
+def llm():
     
     prompt = PromptTemplate(
         input_variables=["query"],
@@ -159,7 +159,7 @@ def llm(llm):
     Customer query: {query}
     """
     )
-
+    llm=load_model()
     llm_chain = LLMChain(llm=llm, prompt=prompt)
 
     llm_tool = Tool(
@@ -167,7 +167,7 @@ def llm(llm):
         func=llm_chain.run,
         description="Handles general customer service inquiries. If the order ID is not provided, it will request the customer to provide their order ID to assist further. If it cannot find relevant information or lacks enough detail, it will respond with 'I don't know.'"
     )
-    return llm_tool
-
-llm_tool = llm(llm)
+    return llm_tool,llm
+llm=llm()[1]
+llm_tool = llm()[0]
 tools=[llm_tool,cancel_order,update_order_status,search_orders,fetch_order_status]
