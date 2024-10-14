@@ -1,6 +1,7 @@
 import argparse
 from src.LLM_SQL_Support.agent import Agent
 from src.LLM_SQL_Support.model_loader import load_model
+from src.LLM_SQL_Support.LangchainTools import llm
 def main(fine_tune):
     if fine_tune:
         pass
@@ -10,7 +11,6 @@ def main(fine_tune):
         # print("Fine-tuning completed!")
 
     # Proceed with running the model
-    llm= load_model()
     react_agent, react_agent_executor = Agent(llm)
     query = "I wanna cancel my order"
     print(f"Executing query: {query}")
