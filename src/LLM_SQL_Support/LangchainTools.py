@@ -150,7 +150,7 @@ def cancel_order(order_id: str) -> str:
     conn.close()
     return "Order successfully cancelled."
 
-def llm():
+def llm(llm):
     
     prompt = PromptTemplate(
         input_variables=["query"],
@@ -160,7 +160,7 @@ def llm():
     """
     )
 
-    llm_chain = LLMChain(llm=load_model(), prompt=prompt)
+    llm_chain = LLMChain(llm=llm, prompt=prompt)
 
     llm_tool = Tool(
         name='Language Model',
@@ -169,5 +169,5 @@ def llm():
     )
     return llm_tool
 
-llm_tool = llm()
+llm_tool = llm(llm)
 tools=[llm_tool,cancel_order,update_order_status,search_orders,fetch_order_status]
