@@ -1,7 +1,7 @@
 import argparse
 from src.LLM_SQL_Support.agent import Agent
-from src.model_finetuning.fine_tuning import fine_tune_model, model_loader  # Import fine-tuning logic
-
+from src.model_finetuning.fine_tuning import fine_tune_model # Import fine-tuning logic
+from src.LLM_SQL_Support.model_loader import load_model
 def main(fine_tune):
     if fine_tune:
         print("Fine-tuning the model... Please wait.")
@@ -9,7 +9,7 @@ def main(fine_tune):
         print("Fine-tuning completed!")
 
     # Proceed with running the model
-    llm= model_loader()
+    llm= load_model()
     react_agent, react_agent_executor = Agent(llm)
     query = "I wanna cancel my order"
     print(f"Executing query: {query}")
