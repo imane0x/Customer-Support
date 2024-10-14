@@ -168,6 +168,5 @@ def llm():
         description="Handles general customer service inquiries. If the order ID is not provided, it will request the customer to provide their order ID to assist further. If it cannot find relevant information or lacks enough detail, it will respond with 'I don't know.'"
     )
     return llm_tool,llm
-llm=llm()[1]
-llm_tool = llm()[0]
+llm_tool,llm=llm()
 tools=[llm_tool,cancel_order,update_order_status,search_orders,fetch_order_status]
