@@ -4,7 +4,7 @@ import torch
 from trl import SFTTrainer
 from transformers import TrainingArguments
 from unsloth import is_bfloat16_supported
-from src.config import  MODEL_PATH, FINE_TUNE_PARAMS,MAX_SQ_LENGTH
+from config import  MODEL_PATH, FINE_TUNE_PARAMS,MAX_SQ_LENGTH
 import src.model_finetuning.data_loader as data_loader,src.model_finetuning.model_loader as model_loader
 def fine_tune_model():
     model,tokenizer = model_loader()
