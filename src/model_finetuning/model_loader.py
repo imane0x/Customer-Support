@@ -1,7 +1,7 @@
 from unsloth import FastLanguageModel
 import config
 
-def load_dataset():
+def model_loader():
     model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = config.MODEL_NAME, # Reminder we support ANY Hugging Face model!
     max_seq_length = config.MAX_SQ_LENGTH,
